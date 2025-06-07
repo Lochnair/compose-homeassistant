@@ -25,6 +25,8 @@ services:
     restart: always
     environment:
       - TZ=Asia/Jakarta
+    ports:
+      - 127.0.0.1:1883:1883
     volumes:
       - "/opt/homeassistant/mqtt:/mosquitto"
       - /etc/localtime:/etc/localtime:ro
