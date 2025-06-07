@@ -2,13 +2,13 @@ services:
   homeassistant:
     container_name: homeassistant
     image: "ghcr.io/home-assistant/home-assistant:stable"
-    ports:
-      - 8123:8123
+    network_mode: host
     volumes:
       - /opt/homeassistant/app:/config
       - /etc/localtime:/etc/localtime:ro
     restart: always
   homebridge:
+    container_name: homebridge
     image: homebridge/homebridge:latest
     restart: always
     network_mode: host
