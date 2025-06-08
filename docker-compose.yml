@@ -7,18 +7,6 @@ services:
       - /opt/homeassistant/app:/config
       - /etc/localtime:/etc/localtime:ro
     restart: always
-  homebridge:
-    container_name: homebridge
-    image: homebridge/homebridge:latest
-    restart: always
-    network_mode: host
-    volumes:
-      - /opt/homeassistant/homebridge:/homebridge
-    logging:
-      driver: json-file
-      options:
-        max-size: "10mb"
-        max-file: "1"
   mqtt:
     container_name: mqtt-broker
     image: eclipse-mosquitto:2.0
